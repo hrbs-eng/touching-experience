@@ -10,7 +10,7 @@ class KeyPressAction extends Component {
   }
 
   executeAction = event => {
-    if (event.keyCode === this.props.keyCode) {
+    if (event.code === this.props.keyCode && !event.repeat) {
       this.props.action();
     }
   };

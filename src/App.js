@@ -9,10 +9,13 @@ class App extends Component {
 
     this.keys = [
       {
-        code: 32,
+        code: "Space",
         text: "Good morning herbie! I hope you will have an herbalecious day!"
       },
-      { code: 84, text: "You are touching rosemary!" }
+      { code: "ArrowDown", text: "You are touching Rosemary!" },
+      { code: "ArrowUp", text: "You are touching Thyme!" },
+      { code: "ArrowRight", text: "You are touching Moroccan Mint!" },
+      { code: "ArrowLeft", text: "You are touching Lemon Balm!" }
     ];
   }
 
