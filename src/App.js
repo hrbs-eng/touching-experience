@@ -4,7 +4,7 @@ import KeyCodesDictionary from "./KeyCodesDictionary";
 import KeyPressAction from "./KeyPressAction";
 
 class App extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.keys = [
