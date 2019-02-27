@@ -1,25 +1,40 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import KeyCodesDictionary from "./KeyCodesDictionary";
+import KeyPressAction from "./KeyPressAction";
 
 class App extends Component {
+  constructor(props) {
+    super();
+
+    this.keys = [
+      {
+        code: 32,
+        text: "Good morning herbie! I hope you will have an herbalecious day!"
+      },
+      { code: 84, text: "You are touching rosemary!" }
+    ];
+  }
+
+  speech = text => {
+    var msg = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(msg);
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h2>Key Press Actions</h2>
+          <KeyCodesDictionary />
         </header>
+        {this.keys.map((key, index) => (
+          <KeyPressAction
+            key={index}
+            keyCode={key.code}
+            action={() => this.speech(key.text)}
+          />
+        ))}
       </div>
     );
   }
